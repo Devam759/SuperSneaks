@@ -1,0 +1,19 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "**/*.html",
+      "use": "@vercel/static"
+    }
+  ],
+  "routes": [
+    { "src": "/", "dest": "/src/pages/home.html" },
+    { "src": "/about", "dest": "/src/pages/about.html" },
+    { "src": "/cart", "dest": "/src/pages/cart.html" },
+    { "src": "/collection", "dest": "/src/pages/collection.html" },
+    { "src": "/contact", "dest": "/src/pages/contact.html" },
+    { "src": "/order", "dest": "/src/pages/order.html" },
+    { "handle": "filesystem" },
+    { "src": "/(.*)", "dest": "/src/pages/home.html" }
+  ]
+}
