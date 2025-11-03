@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Contact Us • SuperSneaks</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&family=Nosifer&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/main.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container" style="padding-top:0;padding-bottom:0;display:flex;align-items:center;justify-content:space-between;gap:1rem;">
+      <a class="brand" href="../../index.html">SuperSneaks</a>
+      <nav class="site-nav" aria-label="Primary">
+        <a href="../../index.html">Home</a>
+        <a href="collection.html">Collection</a>
+        <a href="contact.html">Contact</a>
+        <a href="cart.html">Cart</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container contact">
+    <section class="fade-in">
+      <h1>Make your mark with SuperSneaks</h1>
+      <p class="muted">We craft premium sneakers with a minimalist aesthetic and performance-grade materials. Tell us about your style goals and we’ll help you find the perfect pair.</p>
+    </section>
+
+    <section class="fade-in" style="transition-delay:.08s">
+      <div>
+        <h2 style="margin:0 0 .5rem 0">Contact</h2>
+        <p class="muted">hello@supersneaks.io<br/>+1 (555) 010-2345<br/>Mumbai, IN</p>
+        <div style="display:flex; gap:.6rem; margin-top:1rem;">
+          <a class="btn btn-outline" href="#">Instagram</a>
+          <a class="btn btn-outline" href="#">Facebook</a>
+          <a class="btn btn-outline" href="#">LinkedIn</a>
+        </div>
+      </div>
+      <form id="contactForm" style="margin-top: .5rem">
+        <div class="form-control">
+          <label for="name">Name</label>
+          <input class="input" type="text" id="name" name="name" required />
+        </div>
+        <div class="form-control">
+          <label for="email">Email</label>
+          <input class="input" type="email" id="email" name="email" required />
+        </div>
+        <div class="form-control">
+          <label for="message">Message</label>
+          <textarea class="textarea" id="message" name="message" required></textarea>
+        </div>
+        <button class="btn" type="submit">Submit</button>
+        <p id="contactStatus" class="muted" style="margin-top:.5rem"></p>
+      </form>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div>© <span id="year"></span> SuperSneaks. All rights reserved.</div>
+    </div>
+  </footer>
+
+  <script src="../js/vendor.js" defer></script>
+  <script src="../js/App.js" defer></script>
+</body>
+</html>

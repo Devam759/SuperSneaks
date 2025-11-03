@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Cart • SuperSneaks</title>
+  <link rel="stylesheet" href="../css/main.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container" style="padding-top:0;padding-bottom:0;display:flex;align-items:center;justify-content:space-between;gap:1rem;">
+      <a class="brand" href="../../index.html">SuperSneaks</a>
+      <nav class="site-nav" aria-label="Primary">
+        <a href="../../index.html">Home</a>
+        <a href="collection.html">Collection</a>
+        <a href="contact.html">Contact</a>
+        <a href="cart.html">Cart</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <h1 class="fade-in">Your Cart</h1>
+    <section class="fade-in" style="transition-delay:.08s">
+      <div id="cartList" class="cart-list"></div>
+      <div class="total"><span>Total</span><span>$<span id="totalAmount">0</span></span></div>
+      <div style="display:flex; gap:.6rem;">
+        <a class="btn btn-outline" href="collection.html">Continue Shopping</a>
+        <a id="proceedToOrder" class="btn" href="order.html">Proceed to Order</a>
+      </div>
+      <p id="emptyState" class="muted" style="display:none; margin-top:1rem">Your cart is empty.</p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div>© <span id="year"></span> SuperSneaks. All rights reserved.</div>
+    </div>
+  </footer>
+
+  <script src="../js/vendor.js" defer></script>
+  <script src="../js/App.js" defer></script>
+</body>
+</html>

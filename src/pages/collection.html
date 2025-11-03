@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Our Work • SuperSneaks</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&family=Nosifer&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/main.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container" style="padding-top:0;padding-bottom:0;display:flex;align-items:center;justify-content:space-between;gap:1rem;">
+      <a class="brand" href="../../index.html">SuperSneaks</a>
+      <nav class="site-nav" aria-label="Primary">
+        <a href="../../index.html">Home</a>
+        <a href="collection.html">Collection</a>
+        <a href="contact.html">Contact</a>
+        <a href="cart.html">Cart</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <h1 class="fade-in">Our Work</h1>
+    <section class="collection fade-in" style="transition-delay:.1s">
+      <!-- Row 1: big left, two stacked right -->
+      <div class="collection-row">
+        <a class="product" href="#" data-add-to-cart data-id="sku1" data-name="AeroLite" data-price="149" data-img="../../public/shoes/1.avif">
+          <img src="../../public/shoes/1.avif" alt="AeroLite" />
+        </a>
+        <div class="stack">
+          <a class="product" href="#" data-add-to-cart data-id="sku2" data-name="MonoFlex" data-price="169" data-img="../../public/shoes/2.avif">
+            <img src="../../public/shoes/2.avif" alt="MonoFlex" />
+          </a>
+          <a class="product" href="#" data-add-to-cart data-id="sku3" data-name="StreetPro" data-price="129" data-img="../../public/shoes/3.avif">
+            <img src="../../public/shoes/3.avif" alt="StreetPro" />
+          </a>
+        </div>
+      </div>
+      <!-- Row 2: repeat layout -->
+      <div class="collection-row">
+        <a class="product" href="#" data-add-to-cart data-id="sku4" data-name="CarbonX" data-price="189" data-img="../../public/shoes/4.jpg">
+          <img src="../../public/shoes/4.jpg" alt="CarbonX" />
+        </a>
+        <div class="stack">
+          <a class="product" href="#" data-add-to-cart data-id="sku5" data-name="PrimeEdge" data-price="139" data-img="../../public/shoes/5.jpg">
+            <img src="../../public/shoes/5.jpg" alt="PrimeEdge" />
+          </a>
+          <a class="product" href="#" data-add-to-cart data-id="sku6" data-name="LunaShift" data-price="159" data-img="../../public/shoes/2.avif">
+            <img src="../../public/shoes/2.avif" alt="LunaShift" />
+          </a>
+        </div>
+      </div>
+    </section>
+    <p class="muted" style="margin-top:var(--space-3)">Click any image to add to cart.</p>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div>© <span id="year"></span> SuperSneaks. All rights reserved.</div>
+    </div>
+  </footer>
+
+  <script src="../js/vendor.js" defer></script>
+  <script src="../js/App.js" defer></script>
+</body>
+</html>
