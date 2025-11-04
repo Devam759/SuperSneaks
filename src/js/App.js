@@ -65,7 +65,7 @@
         <img src="${item.img}" alt="${item.name}" width="64" height="64"/>
         <div>
           <div style="font-weight:600">${item.name}</div>
-          <div class="muted">$${item.price}</div>
+          <div class="muted">₹${item.price}</div>
         </div>
         <div style="display:flex; align-items:center; gap:.6rem;">
           <div class="qty">
