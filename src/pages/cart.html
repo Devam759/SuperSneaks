@@ -1,14 +1,20 @@
+<!-- src/pages/cart.html -->
+<!-- This page displays the user's shopping cart items and allows them to proceed to checkout. -->
 <!doctype html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Cart • SuperSneaks</title>
   <link rel="stylesheet" href="../css/main.css" />
 </head>
+
 <body>
+  <!-- Shared header with navigation -->
   <header class="site-header">
-    <div class="container" style="padding-top:0;padding-bottom:0;display:flex;align-items:center;justify-content:space-between;gap:1rem;">
+    <div class="container"
+      style="padding-top:0;padding-bottom:0;display:flex;align-items:center;justify-content:space-between;gap:1rem;">
       <a class="brand" href="../../index.html">SuperSneaks</a>
       <nav class="site-nav" aria-label="Primary">
         <a href="../../index.html">Home</a>
@@ -21,24 +27,32 @@
 
   <main class="container">
     <h1 class="fade-in">Your Cart</h1>
+    <!-- Cart section: Displays list of items, total, and action buttons -->
     <section class="fade-in" style="transition-delay:.08s">
+      <!-- Container for dynamically populated cart items -->
       <div id="cartList" class="cart-list"></div>
+      <!-- Total amount display -->
       <div class="total"><span>Total</span><span>₹<span id="totalAmount">0</span></span></div>
+      <!-- Action buttons -->
       <div style="display:flex; gap:.6rem;">
         <a class="btn btn-outline" href="collection.html">Continue Shopping</a>
         <a id="proceedToOrder" class="btn" href="order.html">Proceed to Order</a>
       </div>
+      <!-- Empty state message -->
       <p id="emptyState" class="muted" style="display:none; margin-top:1rem">Your cart is empty.</p>
     </section>
   </main>
 
+  <!-- Shared footer -->
   <footer class="site-footer">
     <div class="container">
       <div>© <span id="year"></span> SuperSneaks. All rights reserved.</div>
     </div>
   </footer>
 
+  <!-- Scripts -->
   <script src="../js/vendor.js" defer></script>
   <script src="../js/App.js" defer></script>
 </body>
+
 </html>

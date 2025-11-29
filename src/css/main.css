@@ -1,5 +1,10 @@
+/* src/css/main.css */
+/* Global stylesheet for the application */
+
+/* Font definitions */
 .brand, h1, h2, h3 { font-family: var(--font-heading); }
 .handwritten { font-family: var(--font-accent); }
+
 /*
   SuperSneaks global stylesheet
   Structure:
@@ -8,6 +13,7 @@
   - component styles live with each component under src/components
 */
 
+/* CSS Variables for theming and consistency */
 :root {
   --color-bg: #f7f7f8;
   --color-fg: #0b0b0c;
@@ -28,7 +34,7 @@
   --font-accent: "Shadows Into Light", cursive;
 }
 
-/* Base reset */
+/* Base reset and global styles */
 * { box-sizing: border-box; }
 html, body { height: 100%; }
 body {
@@ -42,7 +48,7 @@ img { max-width: 100%; display: block; }
 a { color: inherit; text-decoration: none; }
 html { scroll-behavior: smooth; }
 
-/* Layout */
+/* Layout Utilities */
 .container { max-width: var(--max-w); margin: 0 auto; padding: var(--space-4) var(--space-3); }
 .site-header { position: sticky; top: 0; z-index: 50; backdrop-filter: blur(8px); background: rgba(255,255,255,0.75); display:flex; align-items:center; justify-content:space-between; padding: var(--space-3) var(--space-3); border-bottom: 1px solid var(--color-border); }
 .brand { font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; }
@@ -67,7 +73,7 @@ html { scroll-behavior: smooth; }
 .btn-ghost { display:inline-flex; align-items:center; justify-content:center; padding:1.05rem 1.8rem; border-radius: var(--radius-pill); border: 1.5px solid #000; background: transparent; color: #000; font-size: 1.02rem; transition: color .2s ease, border-color .2s ease, transform .15s ease; }
 .btn-ghost:hover { color: #000; border-color: #000; transform: translateY(-1px); }
 
-/* Hero */
+/* Hero Section Styles */
 .hero { min-height: 88vh; display: grid; place-items: center; padding: var(--space-6) var(--space-3); }
 .hero-inner { width: 100%; max-width: var(--max-w); }
 .hero h1 { font-size: clamp(2.8rem, 8vw, 6rem); margin: 0 0 var(--space-5) 0; letter-spacing: .02em; font-weight: 800; text-align: center; }
@@ -103,7 +109,7 @@ html { scroll-behavior: smooth; }
 .input, .textarea, .select { width: 100%; padding: .9rem 1rem; border-radius: var(--radius); border: 1px solid var(--color-border); background: #ffffff; color: var(--color-fg); }
 .textarea { min-height: 140px; resize: vertical; }
 
-/* Cart */
+/* Cart Styles */
 .cart-list { display: grid; gap: var(--space-3); margin-bottom: var(--space-4); }
 .cart-item { display: grid; gap: var(--space-3); grid-template-columns: 64px 1fr auto; align-items: center; padding: var(--space-3); border: 1px solid var(--color-border); border-radius: var(--radius); background: #ffffff; }
 .qty { display: inline-flex; align-items: center; gap: .5rem; }

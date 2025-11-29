@@ -1,10 +1,16 @@
-(function(){
+// src/components/Button/Button.js
+// Button Component Logic
+(function () {
   window.Components = window.Components || {};
-  window.Components.Button = function Button(){
-    document.querySelectorAll('[data-component="Button"]').forEach(function(el){
-      el.addEventListener('click', function(){
+  // Define Button component behavior
+  window.Components.Button = function Button() {
+    // Find all elements with data-component="Button"
+    document.querySelectorAll('[data-component="Button"]').forEach(function (el) {
+      // Add click event listener for loading effect
+      el.addEventListener('click', function () {
         el.classList.add('is-loading');
-        setTimeout(function(){ el.classList.remove('is-loading'); alert('Action completed'); }, 800);
+        // Simulate async action
+        setTimeout(function () { el.classList.remove('is-loading'); alert('Action completed'); }, 800);
       });
     });
   };

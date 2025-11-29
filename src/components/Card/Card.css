@@ -1,2 +1,7 @@
+/* src/components/Card/Card.css */
 /* Card component styles specific to Card */
-.Card--featured { border-color: #3b82f6; box-shadow: 0 0 0 3px rgba(59,130,246,0.15); }
+/* Featured card variant */
+.Card--featured {
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
+}

@@ -1,21 +1,32 @@
+<!-- index.html -->
+<!-- This is the main entry point of the application. It contains the landing page structure. -->
 <!doctype html>
 <html lang="en">
+<!-- Head section: Contains meta tags, title, and links to stylesheets and fonts -->
+
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>SuperSneaks</title>
   <link rel="manifest" href="public/site.webmanifest" />
+  <!-- Preconnect to font domains for performance -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&family=Nosifer&display=swap" rel="stylesheet">
+  <!-- Import Google Fonts: Cinzel, Nosifer, and Shadows Into Light -->
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&family=Nosifer&display=swap"
+    rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap" rel="stylesheet">
+  <!-- Main stylesheet -->
   <link rel="stylesheet" href="src/css/main.css" />
 </head>
+
 <body>
   <!-- Header with global navigation present on all pages -->
   <header class="site-header">
-    <div class="container" style="padding-top:0;padding-bottom:0;display:flex;align-items:center;justify-content:space-between;gap:1rem;">
+    <div class="container"
+      style="padding-top:0;padding-bottom:0;display:flex;align-items:center;justify-content:space-between;gap:1rem;">
       <a class="brand" href="index.html">SuperSneaks</a>
+      <!-- Primary Navigation -->
       <nav class="site-nav" aria-label="Primary">
         <a href="index.html">Home</a>
         <a href="src/pages/collection.html">Collection</a>
@@ -26,30 +37,35 @@
   </header>
 
   <!-- Home: Hero Section -->
+  <!-- Displays the main banner and featured products -->
   <section class="hero">
     <div class="hero-inner">
       <h1 class="fade-in">Step. Style. Repeat.</h1>
       <!-- <p class="hero-sub fade-in" style="transition-delay:.08s">Premium sneakers crafted for movement and made to last.</p> -->
       <div class="features container fade-in" style="transition-delay:.12s">
         <!-- Feature cards: 2 per row on md -->
+        <!-- Card 1 -->
         <article class="feature-card">
           <div class="feature-media">
             <img src="public/shoes/1.jpg" alt="Sneaker feature 1" />
           </div>
           <!-- <div class="feature-caption">Engineered comfort for everyday pace.</div> -->
         </article>
+        <!-- Card 2 -->
         <article class="feature-card">
           <div class="feature-media">
             <img src="public/shoes/2.jpg" alt="Sneaker feature 2" />
           </div>
           <!-- <div class="feature-caption">Minimal design. Maximum impact.</div> -->
         </article>
+        <!-- Card 3 -->
         <article class="feature-card">
           <div class="feature-media">
             <img src="public/shoes/3.jpg" alt="Sneaker feature 3" />
           </div>
           <!-- <div class="feature-caption">Breathable mesh for long sessions.</div> -->
         </article>
+        <!-- Card 4 -->
         <article class="feature-card">
           <div class="feature-media">
             <img src="public/shoes/6.png" alt="Sneaker feature 4" />
@@ -57,6 +73,7 @@
           <!-- <div class="feature-caption">Precision grip. Street to studio.</div> -->
         </article>
       </div>
+      <!-- Call to Action Buttons -->
       <div class="hero-ctas">
         <a class="btn-ghost" href="src/pages/collection.html" id="ctaWork">Our Work</a>
 
@@ -65,13 +82,16 @@
     </div>
   </section>
 
+  <!-- Footer Section -->
   <footer class="site-footer">
     <div class="container">
       <div>© <span id="year"></span> SuperSneaks. All rights reserved.</div>
     </div>
   </footer>
 
+  <!-- Scripts -->
   <script src="src/js/vendor.js" defer></script>
   <script src="src/js/App.js" defer></script>
 </body>
+
 </html>

@@ -1,18 +1,25 @@
+<!-- src/pages/contact.html -->
+<!-- This page provides contact information and a form for users to get in touch. -->
 <!doctype html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Contact Us • SuperSneaks</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&family=Nosifer&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&family=Nosifer&display=swap"
+    rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../css/main.css" />
 </head>
+
 <body>
+  <!-- Shared header with navigation -->
   <header class="site-header">
-    <div class="container" style="padding-top:0;padding-bottom:0;display:flex;align-items:center;justify-content:space-between;gap:1rem;">
+    <div class="container"
+      style="padding-top:0;padding-bottom:0;display:flex;align-items:center;justify-content:space-between;gap:1rem;">
       <a class="brand" href="../../index.html">SuperSneaks</a>
       <nav class="site-nav" aria-label="Primary">
         <a href="../../index.html">Home</a>
@@ -26,19 +33,21 @@
   <main class="container contact">
     <section class="fade-in">
       <h1>Make your mark with SuperSneaks</h1>
-      <p class="muted">We craft premium sneakers with a minimalist aesthetic and performance-grade materials. Tell us about your style goals and we’ll help you find the perfect pair.</p>
+      <p class="muted">We craft premium sneakers with a minimalist aesthetic and performance-grade materials. Tell us
+        about your style goals and we’ll help you find the perfect pair.</p>
     </section>
 
     <section class="fade-in" style="transition-delay:.08s">
       <div>
         <h2 style="margin:0 0 .5rem 0">Contact</h2>
-        <p class="muted">hello@supersneaks.io<br/>+1 (555) 010-2345<br/>Mumbai, IN</p>
+        <p class="muted">hello@supersneaks.io<br />+1 (555) 010-2345<br />Mumbai, IN</p>
         <div style="display:flex; gap:.6rem; margin-top:1rem;">
           <a class="btn btn-outline" href="#">Instagram</a>
           <a class="btn btn-outline" href="#">Facebook</a>
           <a class="btn btn-outline" href="#">LinkedIn</a>
         </div>
       </div>
+      <!-- Contact Form -->
       <form id="contactForm" style="margin-top: .5rem">
         <div class="form-control">
           <label for="name">Name</label>
@@ -58,13 +67,16 @@
     </section>
   </main>
 
+  <!-- Shared footer -->
   <footer class="site-footer">
     <div class="container">
       <div>© <span id="year"></span> SuperSneaks. All rights reserved.</div>
     </div>
   </footer>
 
+  <!-- Scripts -->
   <script src="../js/vendor.js" defer></script>
   <script src="../js/App.js" defer></script>
 </body>
+
 </html>

@@ -1,64 +1,78 @@
-(function(){
-  const $ = (sel, ctx=document) => ctx.querySelector(sel);
-  const $$ = (sel, ctx=document) => Array.from(ctx.querySelectorAll(sel));
+// src/js/App.js
+// Main application logic for SuperSneaks
+(function () {
+  // Utility helpers for DOM selection
+  const $ = (sel, ctx = document) => ctx.querySelector(sel);
+  const $$ = (sel, ctx = document) => Array.from(ctx.querySelectorAll(sel));
 
+  // Cart State Management
   const storageKey = 'supersneaks_cart_v1';
   const Cart = {
-    get(){
-      try { return JSON.parse(localStorage.getItem(storageKey)) || []; } catch(e){ return []; }
+    // Retrieve cart items from local storage
+    get() {
+      try { return JSON.parse(localStorage.getItem(storageKey)) || []; } catch (e) { return []; }
     },
-    set(items){ localStorage.setItem(storageKey, JSON.stringify(items)); },
-    add(item){
+    // Save cart items to local storage
+    set(items) { localStorage.setItem(storageKey, JSON.stringify(items)); },
+    // Add an item to the cart
+    add(item) {
       const items = Cart.get();
       const found = items.find(x => x.id === item.id);
-      if(found){ found.qty += item.qty || 1; }
+      if (found) { found.qty += item.qty || 1; }
       else { items.push(Object.assign({ qty: 1 }, item)); }
       Cart.set(items);
     },
-    updateQty(id, qty){
-      const items = Cart.get().map(x => x.id===id ? Object.assign({}, x, { qty: Math.max(1, qty|0) }) : x);
+    // Update item quantity
+    updateQty(id, qty) {
+      const items = Cart.get().map(x => x.id === id ? Object.assign({}, x, { qty: Math.max(1, qty | 0) }) : x);
       Cart.set(items);
     },
-    remove(id){ Cart.set(Cart.get().filter(x => x.id !== id)); },
-    clear(){ Cart.set([]); },
-    total(){ return Cart.get().reduce((s,x)=> s + (x.price * x.qty), 0); }
+    // Remove an item from the cart
+    remove(id) { Cart.set(Cart.get().filter(x => x.id !== id)); },
+    // Clear the entire cart
+    clear() { Cart.set([]); },
+    // Calculate total price
+    total() { return Cart.get().reduce((s, x) => s + (x.price * x.qty), 0); }
   };
 
-  function observeFades(){
+  // Intersection Observer for fade-in animations
+  function observeFades() {
     const els = $$('.fade-in');
-    if(!('IntersectionObserver' in window)) { els.forEach(el=>el.classList.add('is-visible')); return; }
-    const io = new IntersectionObserver((entries)=>{
-      entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('is-visible'); io.unobserve(e.target);} });
+    if (!('IntersectionObserver' in window)) { els.forEach(el => el.classList.add('is-visible')); return; }
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('is-visible'); io.unobserve(e.target); } });
     }, { threshold: 0.1 });
-    els.forEach(el=> io.observe(el));
+    els.forEach(el => io.observe(el));
   }
 
-  function bindAddToCart(){
-    $$("[data-add-to-cart]").forEach(el=>{
-      el.addEventListener('click', (ev)=>{
+  // Event binding for "Add to Cart" buttons
+  function bindAddToCart() {
+    $$("[data-add-to-cart]").forEach(el => {
+      el.addEventListener('click', (ev) => {
         ev.preventDefault();
         const d = el.dataset;
-        Cart.add({ id: d.id, name: d.name, price: Number(d.price||0), img: d.img });
+        Cart.add({ id: d.id, name: d.name, price: Number(d.price || 0), img: d.img });
         alert('Added to cart');
         renderCartIfPresent();
       });
     });
   }
 
-  function renderCartIfPresent(){
+  // Render the cart UI if the container exists
+  function renderCartIfPresent() {
     const list = $('#cartList');
     const totalEl = $('#totalAmount');
     const empty = $('#emptyState');
-    if(!list || !totalEl) return;
+    if (!list || !totalEl) return;
     const items = Cart.get();
     list.innerHTML = '';
-    if(items.length === 0){
-      if(empty) empty.style.display = 'block';
+    if (items.length === 0) {
+      if (empty) empty.style.display = 'block';
       totalEl.textContent = '0';
       return;
     }
-    if(empty) empty.style.display = 'none';
-    items.forEach(item =>{
+    if (empty) empty.style.display = 'none';
+    items.forEach(item => {
       const row = document.createElement('div');
       row.className = 'cart-item';
       row.innerHTML = `
@@ -78,45 +92,48 @@
     });
     totalEl.textContent = String(Cart.total());
     // Bind qty changes and removes
-    $$('#cartList input[type="number"]').forEach(input=>{
-      input.addEventListener('change', ()=>{
-        const id = input.id.replace('qty-','');
-        Cart.updateQty(id, Number(input.value||1));
+    $$('#cartList input[type="number"]').forEach(input => {
+      input.addEventListener('change', () => {
+        const id = input.id.replace('qty-', '');
+        Cart.updateQty(id, Number(input.value || 1));
         renderCartIfPresent();
       });
     });
-    $$('#cartList [data-remove]').forEach(btn=>{
-      btn.addEventListener('click', ()=>{ Cart.remove(btn.getAttribute('data-remove')); renderCartIfPresent(); });
+    $$('#cartList [data-remove]').forEach(btn => {
+      btn.addEventListener('click', () => { Cart.remove(btn.getAttribute('data-remove')); renderCartIfPresent(); });
     });
   }
 
-  function bindContactForm(){
+  // Handle contact form submission
+  function bindContactForm() {
     const form = $('#contactForm');
-    if(!form) return;
+    if (!form) return;
     const status = $('#contactStatus');
-    form.addEventListener('submit', (e)=>{
+    form.addEventListener('submit', (e) => {
       e.preventDefault();
-      if(status) status.textContent = 'Thanks! We will get back to you shortly.';
+      if (status) status.textContent = 'Thanks! We will get back to you shortly.';
       form.reset();
     });
   }
 
-  function bindOrderForm(){
+  // Handle order form submission
+  function bindOrderForm() {
     const form = $('#orderForm');
     const msg = $('#orderStatus');
-    if(!form) return;
-    form.addEventListener('submit', (e)=>{
+    if (!form) return;
+    form.addEventListener('submit', (e) => {
       e.preventDefault();
       Cart.clear();
-      if(msg) msg.textContent = 'Order placed successfully. Thank you!';
+      if (msg) msg.textContent = 'Order placed successfully. Thank you!';
       renderCartIfPresent();
       form.reset();
     });
   }
 
-  document.addEventListener('DOMContentLoaded', function(){
+  // Initialize app on DOMContentLoaded
+  document.addEventListener('DOMContentLoaded', function () {
     console.info('[SuperSneaks] App initialized');
-    const y = document.getElementById('year'); if(y) y.textContent = new Date().getFullYear();
+    const y = document.getElementById('year'); if (y) y.textContent = new Date().getFullYear();
 
     observeFades();
     bindAddToCart();
